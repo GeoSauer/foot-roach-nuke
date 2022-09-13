@@ -37,3 +37,7 @@ main {
 #opponent-display {
     font-weight: bold;
 }
+
+.hidden {
+    display: none !important;
+}
