@@ -4,7 +4,7 @@
 
 If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
 
-![wireframe](wireframe.png)
+![wireframe](./assets/wireframe.png)
 
 ## Scoreboard:
 

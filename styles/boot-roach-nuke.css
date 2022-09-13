@@ -1,0 +1,39 @@
+main {
+    text-align: center;
+}
+
+.logo {
+    height: 50px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.scoreboard span {
+    font-weight: bold;
+}
+
+.fighter-pick {
+    height: 80px;
+    width: 175px;
+    padding: 5px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.3em;
+}
+
+.fighter-pick img {
+    height: 100%;
+}
+
+#opponent-image {
+    height: 80px;
+}
+
+#opponent-display {
+    font-weight: bold;
+}
