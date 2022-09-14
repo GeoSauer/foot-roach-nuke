@@ -1,15 +1,15 @@
-// function getRandomItem(array) {
-// const random = getRandomNumber(array.length);
-// const item = array[random];
-// return item;
-// }
+function getRandomItem(array) {
+    const random = getRandomNumber(array.length);
+    const item = array[random];
+    return item;
+}
 
-// const opponents = ['boot', 'roach', 'nuke'];
+const opponents = ['boot', 'roach', 'nuke'];
 
 /* State */
 let gameState = 'pick'; // 'pick', or 'results'
 let pick = ''; // 'boot', 'roach', 'nuke'
-let opponent = ''; // 'boot', 'roach', 'nuke'
+let opponentPick = ''; // 'boot', 'roach', 'nuke'
 let result = ''; // 'win', 'lose', or 'draw'
 
 /* Actions */
@@ -17,6 +17,28 @@ function loadPage() {
     displayPick();
     displayResults();
 }
+
+// function battle(userPick) {
+//     gameState = 'results';
+//     pick = userPick;
+//     opponentPick = getRandomItem(opponents);
+
+//     if (pick === opponentPick) {
+//         result = 'draw';
+//     } else if (pick === boot) {
+//         if (opponentPick === 'roach') {
+//             result = 'win';
+//         } else {
+//             result = 'loss';
+//         }
+//     } else if (pick === roach) {
+//         if (opponentPick === 'nuke') {
+//             result = 'win';
+//         } else {
+//             result = 'loss';
+//         }
+//     }
+// }
 
 /* Components */
 const boot = document.getElementById('pick-boot');
@@ -51,10 +73,16 @@ function displayResults() {
     displayPick;
 }
 // event listeners
-boot.addEventListener('click', () => {});
-roach.addEventListener('click', () => {});
-nuke.addEventListener('click', () => {});
+boot.addEventListener('click', () => {
+    battle('boot');
+});
+roach.addEventListener('click', () => {
+    battle('roach');
+});
+nuke.addEventListener('click', () => {
+    battle('nuke');
+});
 
-rematchButton.addEventListener('click', () => {});
+// rematchButton.addEventListener('click', () => {});
 /* Run page load code */
 loadPage();
