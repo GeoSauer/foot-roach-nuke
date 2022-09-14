@@ -7,18 +7,15 @@
 // const opponents = ['boot', 'roach', 'nuke'];
 
 /* State */
-let gameState = 'results'; // 'pick', or 'results'
+let gameState = 'pick'; // 'pick', or 'results'
 let pick = ''; // 'boot', 'roach', 'nuke'
 let opponent = ''; // 'boot', 'roach', 'nuke'
 let result = ''; // 'win', 'lose', or 'draw'
 
 /* Actions */
 function loadPage() {
-    if (gameState === 'pick') {
-        displayPick();
-    } else if (gameState === 'results') {
-        displayResults();
-    }
+    displayPick();
+    displayResults();
 }
 
 /* Components */
@@ -34,20 +31,30 @@ const pickDisplay = document.getElementById('pick-display');
 // get DOM
 // display
 function displayPick() {
-    resultsDisplay.classList.add('hidden');
-    opponentImage.classList.add('hidden');
-    opponentDisplay.classList.add('hidden');
-    rematchButton.classList.add('hiddden');
+    if (gameState === 'pick') {
+        resultsDisplay.classList.add('hidden');
+        opponentImage.classList.add('hidden');
+        opponentDisplay.classList.add('hidden');
+        rematchButton.classList.add('hidden');
+    } else if (gameState === 'results');
+    displayResults;
 }
 
 function displayResults() {
-    resultsDisplay.classList.remove('hidden');
-    opponentImage.classList.remove('hidden');
-    opponentDisplay.classList.remove('hidden');
-    rematchButton.classList.remove('hiddden');
-    pickDisplay.classList.add('hidden');
+    if (gameState === 'results') {
+        resultsDisplay.classList.remove('hidden');
+        opponentImage.classList.remove('hidden');
+        opponentDisplay.classList.remove('hidden');
+        rematchButton.classList.remove('hidden');
+        pickDisplay.classList.add('hidden');
+    } else if (gameState === 'pick');
+    displayPick;
 }
 // event listeners
+boot.addEventListener('click', () => {});
+roach.addEventListener('click', () => {});
+nuke.addEventListener('click', () => {});
 
+rematchButton.addEventListener('click', () => {});
 /* Run page load code */
 loadPage();
