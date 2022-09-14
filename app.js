@@ -1,7 +1,11 @@
-function getRandomItem(array) {
-    const random = getRandomNumber(array.length);
-    const item = array[random];
-    return item;
+// function getRandomItem(array) {
+//     const random = getRandomNumber(array.length);
+//     const item = array[random];
+//     return item;
+// }
+
+function getRandomNumber(choices) {
+    return Math.floor(Math.random() * choices);
 }
 
 const opponents = ['boot', 'roach', 'nuke'];
@@ -18,27 +22,34 @@ function loadPage() {
     displayResults();
 }
 
-// function battle(userPick) {
-//     gameState = 'results';
-//     pick = userPick;
-//     opponentPick = getRandomItem(opponents);
+function battle(userPick) {
+    gameState = 'results';
+    pick = userPick;
+    opponentPick = getRandomNumber(opponents);
 
-//     if (pick === opponentPick) {
-//         result = 'draw';
-//     } else if (pick === boot) {
-//         if (opponentPick === 'roach') {
-//             result = 'win';
-//         } else {
-//             result = 'loss';
-//         }
-//     } else if (pick === roach) {
-//         if (opponentPick === 'nuke') {
-//             result = 'win';
-//         } else {
-//             result = 'loss';
-//         }
-//     }
-// }
+    if (pick === opponentPick) {
+        result = 'draw';
+    } else if (pick === boot) {
+        if (opponentPick === 'roach') {
+            result = 'win';
+        } else {
+            result = 'loss';
+        }
+    } else if (pick === roach) {
+        if (opponentPick === 'nuke') {
+            result = 'win';
+        } else {
+            result = 'loss';
+        }
+    } else if (pick === nuke) {
+        if (opponentPick === 'boot') {
+            result = 'win';
+        } else {
+            result = 'loss';
+        }
+    }
+    loadPage();
+}
 
 /* Components */
 const boot = document.getElementById('pick-boot');
