@@ -14,7 +14,7 @@ const opponents = ['boot', 'roach', 'nuke'];
 let gameState = 'pick'; // 'pick', or 'results'
 let pick = ''; // 'boot', 'roach', 'nuke'
 let opponentPick = ''; // 'boot', 'roach', 'nuke'
-let result = ''; // 'win', 'lose', or 'draw'
+// let result = ''; // 'win', 'lose', or 'draw'
 
 /* Actions */
 function loadPage() {
@@ -28,24 +28,24 @@ function battle(userPick) {
     opponentPick = getRandomNumber(opponents);
 
     if (pick === opponentPick) {
-        result = 'draw';
+        // result = 'draw';
     } else if (pick === boot) {
         if (opponentPick === 'roach') {
-            result = 'win';
+            // result = 'win';
         } else {
-            result = 'loss';
+            // result = 'loss';
         }
     } else if (pick === roach) {
         if (opponentPick === 'nuke') {
-            result = 'win';
+            // result = 'win';
         } else {
-            result = 'loss';
+            // result = 'loss';
         }
     } else if (pick === nuke) {
         if (opponentPick === 'boot') {
-            result = 'win';
+            // result = 'win';
         } else {
-            result = 'loss';
+            // result = 'loss';
         }
     }
     loadPage();
