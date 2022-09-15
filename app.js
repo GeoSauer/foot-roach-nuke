@@ -51,6 +51,11 @@ function battle(userPick) {
     loadPage();
 }
 
+function playAgain() {
+    gameState = 'pick';
+    loadPage();
+}
+
 /* Components */
 const boot = document.getElementById('pick-boot');
 const roach = document.getElementById('pick-roach');
@@ -94,6 +99,8 @@ nuke.addEventListener('click', () => {
     battle('nuke');
 });
 
-// rematchButton.addEventListener('click', () => {});
+rematchButton.addEventListener('click', () => {
+    playAgain();
+});
 /* Run page load code */
 loadPage();
