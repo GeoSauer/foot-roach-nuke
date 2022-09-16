@@ -1,12 +1,3 @@
-// function getRandomItem(array) {
-//     const random = getRandomNumber(array.length);
-//     const item = array[random];
-//     return item;
-// }
-
-// function getRandomNumber(choices) {
-//     return Math.floor(Math.random() * choices);
-// }
 import { getRandomItem } from './utils.js';
 
 const opponents = ['boot', 'roach', 'nuke'];
@@ -32,33 +23,54 @@ function battle(userPick) {
     gameState = 'results';
     pick = userPick;
     opponentPick = getRandomItem(opponents);
-    console.log(opponentPick);
+
     if (pick === opponentPick) {
-        result = 'draw';
-        // draws++;
-    } else if (pick === boot) {
-        if (opponentPick === 'roach') {
-            result = 'win';
-            // wins++;
-        } else {
-            result = 'loss';
-            // losses++;
-        }
-    } else if (pick === roach) {
-        if (opponentPick === 'nuke') {
-            result = 'win';
-        } else {
-            result = 'loss';
-        }
-    } else if (pick === nuke) {
-        if (opponentPick === 'boot') {
-            result = 'win';
-        } else {
-            result = 'loss';
-        }
+        outcomeDisplay.textContent = 'Draw!';
+    }
+    if (pick === boot && opponentPick === 'roach') {
+        outcomeDisplay.textContent = 'You won!';
+    }
+    if (pick === boot && opponentPick === 'nuke') {
+        outcomeDisplay.textContent = 'You lost!';
+    }
+    if (pick === roach && opponentPick === 'nuke') {
+        outcomeDisplay.textContent = 'You won!';
+    }
+    if (pick === roach && opponentPick === 'boot') {
+        outcomeDisplay.textContent = 'You lost!';
+    }
+    if (pick === nuke && opponentPick === 'boot') {
+        outcomeDisplay.textContent = 'You won!';
+    }
+    if (pick === nuke && opponentPick === 'roach') {
+        outcomeDisplay.textContent = 'You lost!';
     }
     loadPage();
 }
+// result = 'draw';
+// draws++;
+// } else if (pick === boot) {
+//     if (opponentPick === 'roach') {
+//         outcomeDisplay.textContent = 'You win!';
+//         // result = 'win';
+//         // wins++;
+//     } else {
+//         outcomeDisplay.textContent = 'You lose!';
+//         // result = 'loss';
+//         // losses++;
+//     }
+// } else if (pick === roach) {
+//     if (opponentPick === 'nuke') {
+//         // result = 'win';
+//     } else {
+//         // result = 'loss';
+//     }
+// } else if (pick === nuke) {
+//     if (opponentPick === 'boot') {
+//         // result = 'win';
+//     } else {
+//         // result = 'loss';
+//     }
 
 function playAgain() {
     gameState = 'pick';
@@ -82,8 +94,8 @@ const boot = document.getElementById('pick-boot');
 const roach = document.getElementById('pick-roach');
 const nuke = document.getElementById('pick-nuke');
 
-// const opponentImage = document.getElementById('opponent-image');
-// const opponentDisplay = document.getElementById('opponent-display');
+const opponentImage = document.getElementById('opponent-image');
+const outcomeDisplay = document.getElementById('outcome-display');
 const rematchButton = document.getElementById('rematch-button');
 // const resultsDisplay = document.getElementById('results-display');
 const pickDisplay = document.getElementById('pick-display');
@@ -93,19 +105,14 @@ const results = document.getElementById('results');
 function displayPick() {
     if (gameState === 'pick') {
         results.classList.add('hidden');
-        // if (pick === 'boot') {
-        // roach.classList.add('fade-out');
-        // nuke.classList.add('fade-out');
-        // boot.classList.add(result);
     }
-    if (gameState === 'results');
-    displayResults;
 }
 
 function displayResults() {
     if (gameState === 'results') {
         results.classList.remove('hidden');
         pickDisplay.classList.add('hidden');
+        opponentImage.src = './assets/' + opponentPick + '.png';
     } else if (gameState === 'pick');
     displayPick;
 }
@@ -113,12 +120,18 @@ function displayResults() {
 // event listeners
 boot.addEventListener('click', () => {
     battle('boot');
+    // roach.classList.add('hidden');
+    // nuke.classList.add('hidden');
 });
 roach.addEventListener('click', () => {
     battle('roach');
+    // boot.classList.add('hidden');
+    // nuke.classList.add('hidden');
 });
 nuke.addEventListener('click', () => {
     battle('nuke');
+    // roach.classList.add('hidden');
+    // boot.classList.add('hidden');
 });
 
 rematchButton.addEventListener('click', () => {
