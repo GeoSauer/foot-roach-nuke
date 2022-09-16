@@ -1,40 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- metadata -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-    <!-- metadata -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- title and favicon -->
+        <title>Web App</title>
+        <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
 
-    <!-- title and favicon -->
-    <title>Web App</title>
-    <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
+        <!-- js -->
+        <script type="module" src="app.js"></script>
 
-    <!-- js -->
-    <script type="module" src="app.js"></script>
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap"
+        />
 
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+        <!-- css -->
+        <link rel="stylesheet" href="/styles/reset.css" />
+        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="/styles/boot-roach-nuke.css" />
+    </head>
 
-    <!-- css -->
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/global.css" />
-</head>
+    <body>
+        <header>
+            <img class="logo" src="/assets/cowthey-hat.png" />
+            <h1>Good old fashioned Boot Roach Nuke!</h1>
+        </header>
 
-<body>
-    <header>
-        <img src="/assets/html_css_js.png">
-        <h1>Web App</h1>
-    </header>
+        <main>
+            <section id="'scoreboard">
+                <h2>Scoreboard</h2>
+                <p class="scores">
+                    Total:
+                    <span id="total-display">6</span>
+                    Wins:
+                    <span id="wins-dispaly">3</span>
+                    Losses:
+                    <span id="losses-display">2</span>
+                    Draws:
+                    <span id="draws-display">1</span>
+                </p>
+            </section>
 
-    <main>
+            <section id="fighters">
+                <h2 id="pick-display">Pick yer poison!</h2>
+                <button class="fighter-pick" class="hidden" id="pick-boot">
+                    <img src="./assets/boot.png" alt="boot image" />
+                    Boot
+                </button>
+                <button class="fighter-pick" id="pick-roach">
+                    <img src="./assets/roach.png" alt="roach image" />
+                    Roach
+                </button>
+                <button class="fighter-pick" id="pick-nuke">
+                    <img src="./assets/nuke.png" alt="nuke image" />
+                    Nuke
+                </button>
+            </section>
 
-    </main>
-
-</body>
-
+            <section id="results">
+                <h2 id="results-display">The battle is over...</h2>
+                <img id="opponent-image" src="assets/boot.png" alt="boot image" />
+                <p id="outcome-display"></p>
+                <button id="rematch-button">Rematch?</button>
+            </section>
+        </main>
+    </body>
 </html>
